@@ -31,13 +31,14 @@ export default {
 
 input {
   display: block;
-  padding: 10px 15px;
+  padding: 18px 15px;
   width: 100%;
   border: none;
   border-radius: 0;
   color: white;
-  background: black;
+  background: #1c1c1c;
   transition: 0.3s ease;
+  font-size: 16px;
 }
 
 input:focus {

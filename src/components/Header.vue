@@ -12,4 +12,7 @@ export default {
 </script>
 
 <style>
+.logo {
+  margin-bottom: 5em;
+}
 </style>

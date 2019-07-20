@@ -22,8 +22,7 @@ export default {
 <style>
 .btn {
   background-color: #f65261;
-  padding: 12px 50px;
+  padding: 18px 75px;
   color: white;
-  text-decoration: none;
 }
 </style>

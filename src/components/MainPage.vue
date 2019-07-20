@@ -32,18 +32,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+header {
+  color: #e50914;
+  background: linear-gradient(
+      45deg,
+      rgba(103, 0, 31, 0.8),
+      rgba(34, 101, 163, 0.5)
+    ),
+    url(https://assets.nflxext.com/ffe/siteui/vlv3/eeca4431-e8de-4314-9a9f-189c87c2fe08/3702eb34-731a-4357-8750-20b0d9b98381/BY-en-20190325-popsignuptwoweeks-perspective_alpha_website_small.jpg);
+  background-size: cover;
+  padding: 0 10em;
 }
 </style>

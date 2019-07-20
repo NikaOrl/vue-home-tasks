@@ -11,4 +11,11 @@ export default {
 </script>
 
 <style>
+footer {
+  display: flex;
+  flex: 0 0 auto;
+  background-color: #32383d;
+  padding: 1em 10em;
+  color: #e50914;
+}
 </style>
