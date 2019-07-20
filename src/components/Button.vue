@@ -1,0 +1,29 @@
+<template>
+  <input type="button" class="btn" @click="onClick" :value="title" />
+</template>
+
+<script>
+export default {
+  name: "Button",
+  props: {
+    title: {
+      type: String,
+      default: ""
+    }
+  },
+  methods: {
+    onClick() {
+      alert("click");
+    }
+  }
+};
+</script>
+
+<style>
+.btn {
+  background-color: #f65261;
+  padding: 12px 50px;
+  color: white;
+  text-decoration: none;
+}
+</style>
