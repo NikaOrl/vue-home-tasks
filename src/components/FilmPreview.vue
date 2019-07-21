@@ -13,7 +13,9 @@
         <span class="item-preview-release-date">{{release_date.split("-")[0]}}</span>
       </div>
     </div>
-    <div class="item-preview-genres">{{genres.join(" & ")}}</div>
+    <div
+      class="item-preview-genres"
+    >{{genres && Array.isArray(genres) ? genres.join(" & ") : genres}}</div>
   </div>
 </template>
 

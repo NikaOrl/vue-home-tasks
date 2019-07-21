@@ -1,7 +1,7 @@
 <template>
   <div class="search-form-block">
     <h1>FIND YOUR MOVIE</h1>
-    <SearchInput />
+    <SearchInput v-on:value-change="onSearchValueChange" />
     <div class="search-form-tags">
       <RadioButton
         :title="'SEARCH BY'"
@@ -34,13 +34,16 @@ export default {
           name: "searchBy"
         }
       ],
-      searchOption: "TITLE"
+      searchOption: "TITLE",
+      searchValue: ""
     };
   },
   methods: {
     onSearchOptionChange(searchOption) {
       this.searchOption = searchOption;
-      alert(searchOption);
+    },
+    onSearchValueChange(searchValue) {
+      this.searchValue = searchValue;
     }
   }
 };

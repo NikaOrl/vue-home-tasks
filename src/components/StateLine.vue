@@ -40,7 +40,6 @@ export default {
   methods: {
     onSortOptionChange(sortOption) {
       this.sortOption = sortOption;
-      alert(sortOption);
     }
   }
 };

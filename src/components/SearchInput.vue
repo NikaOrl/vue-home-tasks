@@ -7,12 +7,12 @@
         id="search"
         name="search"
         placeholder="Search"
-        v-on:keyup.enter="search"
+        v-on:keyup.enter="$emit('value-change', value)"
         class="search-input"
       />
       <div class="bottom-border" />
     </div>
-    <div class="search-form-btn" v-on:click="search">
+    <div class="search-form-btn" v-on:click="$emit('value-change', value)">
       <Button title="SEARCH" />
     </div>
   </div>
@@ -24,11 +24,6 @@ import Button from "./Button.vue";
 export default {
   name: "SearchInput",
   components: { Button },
-  methods: {
-    search() {
-      alert(this.value);
-    }
-  },
   data: () => {
     return {
       value: ""
