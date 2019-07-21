@@ -48,19 +48,17 @@ export default {
         }
       ]
     };
-  },
-  props: []
+  }
 };
 </script>
 
-<style>
+<style scoped>
 .container {
   display: flex;
   flex: 1 0 auto;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 0 10em;
-  padding-top: 1em;
+  padding: 1em 10em 0 10em;
   background-color: #232323;
 }
 </style>

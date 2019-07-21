@@ -40,9 +40,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+img {
+  width: 100%;
+  height: auto;
+}
+
 .item-preview {
-  width: 30%;
+  max-width: 30%;
   margin-bottom: 1em;
 }
 

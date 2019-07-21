@@ -1,12 +1,18 @@
 <template>
   <div class="radio-buttons">
     <div class="radio-buttons-title">{{title}}</div>
-    <div v-for="btn in options" :key="btn.id">
-      <input class="radio-button" type="radio" :checked="btn.isChecked" :name="radioButtonId" />
+    <label v-for="btn in options" :key="btn.id">
+      <input
+        @click="$emit('option-change', btn.title)"
+        class="radio-button"
+        type="radio"
+        :checked="btn.isChecked"
+        :name="radioButtonId"
+      />
       <div class="box">
         <span>{{btn.title}}</span>
       </div>
-    </div>
+    </label>
   </div>
 </template>
 
@@ -32,7 +38,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .radio-buttons {
   display: flex;
 }

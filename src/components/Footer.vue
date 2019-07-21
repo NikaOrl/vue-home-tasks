@@ -10,7 +10,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 footer {
   display: flex;
   flex: 0 0 auto;

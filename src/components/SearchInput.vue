@@ -1,56 +1,73 @@
 <template>
-  <div class="search-form">
+  <div class="search-line">
     <div class="input-group">
-      <input type="text" id="search" name="search" placeholder="Search" />
+      <input
+        type="text"
+        v-model="value"
+        id="search"
+        name="search"
+        placeholder="Search"
+        v-on:keyup.enter="search"
+        class="search-input"
+      />
       <div class="bottom-border" />
+    </div>
+    <div class="search-form-btn" v-on:click="search">
+      <Button title="SEARCH" />
     </div>
   </div>
 </template>
 
 <script>
+import Button from "./Button.vue";
+
 export default {
-  name: "SearchInput"
+  name: "SearchInput",
+  components: { Button },
+  methods: {
+    search() {
+      alert(this.value);
+    }
+  },
+  data: () => {
+    return {
+      value: ""
+    };
+  }
 };
 </script>
 
-<style>
-.search-form {
-  width: 100%;
-  margin: auto;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+<style scoped>
+.search-line {
+  display: flex;
+  margin-bottom: 1em;
 }
 
 .input-group {
   width: 100%;
   overflow: hidden;
-  position: relative;
 }
 
-input {
-  display: block;
+.search-input {
   padding: 18px 15px;
   width: 100%;
   border: none;
-  border-radius: 0;
   color: white;
   background: #1c1c1c;
   transition: 0.3s ease;
   font-size: 16px;
 }
 
-input:focus {
+.search-input:focus {
   outline: none;
 }
 
 .bottom-border {
   background: #f65261;
-  content: "";
-  width: 100%;
   height: 5px;
-  transition: 0.3s ease;
-  position: relative;
+}
+
+.search-form-btn {
+  display: flex;
 }
 </style>

@@ -4,7 +4,12 @@
       <div class="state-line-left">7 movies found</div>
     </div>
     <div class="state-line-right">
-      <RadioButton :title="'SORT BY'" :options="options" id="2" />
+      <RadioButton
+        :title="'SORT BY'"
+        :options="options"
+        id="2"
+        v-on:option-change="onSortOptionChange"
+      />
     </div>
   </div>
 </template>
@@ -28,13 +33,20 @@ export default {
           isChecked: false,
           name: "searchBy"
         }
-      ]
+      ],
+      sortOption: "RELEASE DATE"
     };
+  },
+  methods: {
+    onSortOptionChange(sortOption) {
+      this.sortOption = sortOption;
+      alert(sortOption);
+    }
   }
 };
 </script>
 
-<style>
+<style scoped>
 .state-line {
   display: flex;
   justify-content: space-between;

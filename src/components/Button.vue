@@ -1,5 +1,5 @@
 <template>
-  <input type="button" class="btn" @click="onClick" :value="title" />
+  <input type="button" class="btn" :value="title" />
 </template>
 
 <script>
@@ -10,19 +10,22 @@ export default {
       type: String,
       default: ""
     }
-  },
-  methods: {
-    onClick() {
-      alert("click");
-    }
   }
 };
 </script>
 
-<style>
+<style scoped>
 .btn {
   background-color: #f65261;
   padding: 18px 75px;
   color: white;
+  width: 100%;
+  border: none;
+  transition: 0.3s ease;
+  font-size: 16px;
+}
+
+.btn:focus {
+  outline: none;
 }
 </style>
