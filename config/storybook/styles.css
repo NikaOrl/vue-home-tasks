@@ -1,0 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font: 100 16px/18px Arial;
+}
