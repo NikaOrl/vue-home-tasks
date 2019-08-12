@@ -38,7 +38,7 @@ header {
       rgba(103, 0, 31, 0.8),
       rgba(34, 101, 163, 0.5)
     ),
-    url(https://assets.nflxext.com/ffe/siteui/vlv3/eeca4431-e8de-4314-9a9f-189c87c2fe08/3702eb34-731a-4357-8750-20b0d9b98381/BY-en-20190325-popsignuptwoweeks-perspective_alpha_website_small.jpg);
+    url(../assets/background.jpg);
   background-size: cover;
   padding: 0 10em;
 }
