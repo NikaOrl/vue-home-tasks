@@ -10,12 +10,10 @@
         <h3>{{title}}</h3>
       </div>
       <div>
-        <span class="item-preview-release-date">{{release_date.split("-")[0]}}</span>
+        <span class="item-preview-release-date">{{releaseDate}}</span>
       </div>
     </div>
-    <div
-      class="item-preview-genres"
-    >{{genres && Array.isArray(genres) ? genres.join(" & ") : genres}}</div>
+    <div class="item-preview-genres">{{filmGenres}}</div>
   </div>
 </template>
 
@@ -38,11 +36,25 @@ export default {
     genres: {
       type: Array
     }
+  },
+  computed: {
+    releaseDate: function() {
+      return this.release_date.split("-")[0];
+    },
+    filmGenres: function() {
+      return this.genres && Array.isArray(this.genres)
+        ? this.genres.join(" & ")
+        : this.genres;
+    }
   }
 };
 </script>
 
 <style scoped>
+:root {
+  --grey-color: #a1a1a1;
+}
+
 img {
   width: 100%;
   height: auto;
@@ -60,17 +72,17 @@ img {
 
 .item-preview-title h3 {
   font-weight: 100;
-  color: #a1a1a1;
+  color: var(--grey-color);
 }
 
 .item-preview-release-date {
-  border: 1px solid #a1a1a1;
-  color: #a1a1a1;
+  border: 1px solid var(--grey-color);
+  color: var(--grey-color);
   padding: 1px 5px;
 }
 
 .item-preview-genres {
-  color: #a1a1a1;
+  color: var(--grey-color);
   font-size: 12px;
 }
 </style>

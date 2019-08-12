@@ -4,7 +4,7 @@
     <SearchInput v-on:value-change="onSearchValueChange" />
     <div class="search-form-tags">
       <RadioButton
-        :title="'SEARCH BY'"
+        title="SEARCH BY"
         :options="options"
         id="1"
         v-on:option-change="onSearchOptionChange"
@@ -50,13 +50,17 @@ export default {
 </script>
 
 <style scoped>
+:root {
+  --white-color: #fff;
+}
+
 .search-form-tags {
-  color: white;
+  color: var(--white-color);
   padding-bottom: 5em;
 }
 
 .search-form-block h1 {
-  color: white;
+  color: var(--white-color);
   margin-bottom: 2em;
   font-weight: 100;
   font-size: 32px;
