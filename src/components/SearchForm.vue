@@ -20,7 +20,7 @@ import RadioButton from "./RadioButton.vue";
 export default {
   name: "SearchForm",
   components: { SearchInput, RadioButton },
-  data: () => {
+  data() {
     return {
       options: [
         {
@@ -34,16 +34,16 @@ export default {
           name: "searchBy"
         }
       ],
-      searchOption: "TITLE",
-      searchValue: ""
+      searchOption: this.$store.state.searchOption,
+      searchValue: this.$store.state.searchValue
     };
   },
   methods: {
     onSearchOptionChange(searchOption) {
-      this.searchOption = searchOption;
+      this.$store.commit("CHANGE_SEARCH_OPTION", searchOption);
     },
     onSearchValueChange(searchValue) {
-      this.searchValue = searchValue;
+      this.$store.commit("CHANGE_SEARCH_VALUE", searchValue);
     }
   }
 };
