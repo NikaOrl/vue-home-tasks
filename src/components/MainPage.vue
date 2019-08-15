@@ -1,7 +1,8 @@
 <template>
   <div>
     <Header>
-      <SearchForm />
+      <!-- <SearchForm /> -->
+      <FilmItem />
     </Header>
     <div>
       <StateLine />
@@ -13,18 +14,20 @@
 
 <script>
 import Header from "./Header.vue";
-import SearchForm from "./SearchForm.vue";
+// import SearchForm from "./SearchForm.vue";
 import StateLine from "./StateLine.vue";
 import FilmsList from "./FilmsList.vue";
 import Footer from "./Footer.vue";
+import FilmItem from "./FilmItem.vue";
 
 export default {
   name: "MainPage",
   components: {
     Header,
-    SearchForm,
+    // SearchForm,
     StateLine,
     FilmsList,
+    FilmItem,
     Footer
   }
 };
