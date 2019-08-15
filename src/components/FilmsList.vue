@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <FilmPreview
-      v-for="(film, index) in films"
+      v-for="(film, index) in filmsBySearchValue"
       :key="index"
       :title="film.title"
       :poster_path="film.poster_path"
@@ -21,6 +21,26 @@ export default {
     return {
       films: this.$store.state.films
     };
+  },
+  computed: {
+    searchValue() {
+      return this.$store.state.searchValue;
+    },
+    searchOption() {
+      return this.$store.state.searchOption;
+    },
+    filmsBySearchValue() {
+      if (this.searchOption === "TITLE") {
+        return this.films.filter(film =>
+          film.title.toLowerCase().includes(this.searchValue.toLowerCase())
+        );
+      }
+      return this.films.filter(film =>
+        film.genres.some(genre =>
+          genre.toLowerCase().includes(this.searchValue.toLowerCase())
+        )
+      );
+    }
   }
 };
 </script>

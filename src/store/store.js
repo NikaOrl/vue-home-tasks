@@ -5,6 +5,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    searchValue: '',
+    searchOption: 'TITLE',
     films: [
       {
         id: 447365,
@@ -168,6 +170,14 @@ export default new Vuex.Store({
   getters: {
     filmItem(state) {
       return id => state.films.find(film => film.id === id);
+    }
+  },
+  mutations: {
+    CHANGE_SEARCH_VALUE(state, value) {
+      state.searchValue = value;
+    },
+    CHANGE_SEARCH_OPTION(state, option) {
+      state.searchOption = option;
     }
   }
 });
