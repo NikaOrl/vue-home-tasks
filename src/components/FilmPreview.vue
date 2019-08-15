@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style scoped>
-:root {
+* {
   --grey-color: #a1a1a1;
 }
 
