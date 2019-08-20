@@ -7,6 +7,7 @@
       :poster_path="film.poster_path"
       :release_date="film.release_date"
       :genres="film.genres"
+      :id="film.id"
       v-isInTheView="$refs.wrapper"
       @intersects="intersected($event)"
     />

@@ -27,7 +27,9 @@ export default new Vuex.Store({
       state.films = data;
     },
     ADD_FILM(state, film) {
-      state.films = [...state.films, film];
+      if (film.id) {
+        state.films = [...state.films, film];
+      }
     }
   },
   actions: {
