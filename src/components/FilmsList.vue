@@ -20,12 +20,10 @@ import { isInTheView } from "../directives/IsInTheView.js";
 export default {
   name: "FilmsList",
   components: { FilmPreview },
-  data: () => {
-    return {
-      films: []
-    };
-  },
   computed: {
+    films() {
+      return this.$store.state.films;
+    },
     searchValue() {
       return this.$store.state.searchValue;
     },
@@ -54,7 +52,7 @@ export default {
     isInTheView: isInTheView
   },
   mounted() {
-    this.films = this.$store.state.films;
+    this.$store.dispatch("LOAD_FILMS").catch(err => console.log(err.message));
   }
 };
 </script>
