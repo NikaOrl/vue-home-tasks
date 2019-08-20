@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" v-if="film">
     <div class="film-img">
       <img :src="film.poster_path" :alt="film.title" />
     </div>
@@ -22,6 +22,11 @@ export default {
     film() {
       return this.$store.getters.filmItem(351286);
     }
+  },
+  mounted() {
+    this.$store
+      .dispatch("LOAD_FILM", 351286)
+      .catch(err => console.log(err.message));
   }
 };
 </script>
