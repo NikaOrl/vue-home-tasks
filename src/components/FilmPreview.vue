@@ -10,7 +10,7 @@
         <h3>{{title}}</h3>
       </div>
       <div>
-        <span class="item-preview-release-date">{{releaseDate}}</span>
+        <span class="item-preview-release-date">{{release_date | findYear}}</span>
       </div>
     </div>
     <div class="item-preview-genres">{{filmGenres}}</div>
@@ -38,9 +38,6 @@ export default {
     }
   },
   computed: {
-    releaseDate: function() {
-      return this.release_date.split("-")[0];
-    },
     filmGenres: function() {
       return this.genres && Array.isArray(this.genres)
         ? this.genres.join(" & ")
