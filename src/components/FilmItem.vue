@@ -8,7 +8,7 @@
         <h1>{{film.title}}</h1>
       </div>
       <div class="film-info__release-date">
-        <span>{{releaseDate}}</span> year
+        <span>{{film.release_date | findYear}}</span> year
       </div>
       <div class="film-info__overview">{{film.overview}}</div>
     </div>
@@ -21,9 +21,6 @@ export default {
   computed: {
     film() {
       return this.$store.getters.filmItem(351286);
-    },
-    releaseDate: function() {
-      return this.film.release_date.split("-")[0];
     }
   }
 };

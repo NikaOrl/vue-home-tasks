@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" ref="wrapper">
     <FilmPreview
       v-for="(film, index) in filmsBySearchValue"
       :key="index"
@@ -7,19 +7,22 @@
       :poster_path="film.poster_path"
       :release_date="film.release_date"
       :genres="film.genres"
+      v-isInTheView="$refs.wrapper"
+      @intersects="intersected($event)"
     />
   </div>
 </template>
 
 <script>
 import FilmPreview from "./FilmPreview.vue";
+import { isInTheView } from "../directives/IsInTheView.js";
 
 export default {
   name: "FilmsList",
   components: { FilmPreview },
-  data() {
+  data: () => {
     return {
-      films: this.$store.state.films
+      films: []
     };
   },
   computed: {
@@ -41,6 +44,17 @@ export default {
         )
       );
     }
+  },
+  methods: {
+    intersected(event) {
+      console.log(event.detail);
+    }
+  },
+  directives: {
+    isInTheView: isInTheView
+  },
+  mounted() {
+    this.films = this.$store.state.films;
   }
 };
 </script>
