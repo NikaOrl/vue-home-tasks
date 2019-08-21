@@ -9,11 +9,24 @@ export default new Vuex.Store({
   state: {
     searchValue: '',
     searchOption: 'TITLE',
+    sortOption: 'RELEASE DATE',
     films: []
   },
   getters: {
     filmItem(state) {
       return id => state.films.find(film => film.id === id);
+    },
+    getFilteredFilms(state) {
+      if (state.searchOption === 'TITLE') {
+        return state.films.filter(film =>
+          film.title.toLowerCase().includes(state.searchValue.toLowerCase())
+        );
+      }
+      return state.films.filter(film =>
+        film.genres.some(genre =>
+          genre.toLowerCase().includes(state.searchValue.toLowerCase())
+        )
+      );
     }
   },
   mutations: {
@@ -22,6 +35,9 @@ export default new Vuex.Store({
     },
     CHANGE_SEARCH_OPTION(state, option) {
       state.searchOption = option;
+    },
+    CHANGE_SORT_OPTION(state, option) {
+      state.sortOption = option;
     },
     ADD_FILMS(state, data) {
       state.films = data;

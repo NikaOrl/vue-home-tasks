@@ -29,6 +29,7 @@ export default {
   mounted() {
     this.$store
       .dispatch("LOAD_FILM", +this.$route.params.id)
+      // eslint-disable-next-line
       .catch(err => console.log(err.message));
   }
 };
