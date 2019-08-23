@@ -5,7 +5,15 @@ export const isInTheView = {
         if (entries.length) {
           const first = entries[0];
           if (first.isIntersecting) {
-            vnode.elm.dispatchEvent(new CustomEvent('intersect'));
+            if (vnode.componentInstance) {
+              vnode.componentInstance.$emit('intersects', {
+                detail: 'eventData'
+              });
+            } else {
+              vnode.elm.dispatchEvent(
+                new CustomEvent('intersects', { detail: 'eventData' })
+              );
+            }
           }
         }
       },
