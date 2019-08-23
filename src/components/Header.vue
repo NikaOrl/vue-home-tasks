@@ -1,6 +1,8 @@
 <template>
   <header>
-    <div class="logo">NETFLIX ROULETTE</div>
+    <router-link to="/">
+      <div class="logo">NETFLIX ROULETTE</div>
+    </router-link>
     <slot></slot>
   </header>
 </template>
@@ -14,5 +16,6 @@ export default {
 <style scoped>
 .logo {
   margin-bottom: 5em;
+  color: #e50914;
 }
 </style>

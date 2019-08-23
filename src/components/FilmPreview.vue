@@ -1,9 +1,9 @@
 <template>
   <div class="item-preview">
     <div>
-      <a href="id">
+      <router-link :to="'/'+id">
         <img :src="poster_path" :alt="title" />
-      </a>
+      </router-link>
     </div>
     <div class="item-preview-title">
       <div>
@@ -24,6 +24,9 @@ export default {
     title: {
       type: String,
       default: ""
+    },
+    id: {
+      type: Number
     },
     poster_path: {
       type: String,

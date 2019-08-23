@@ -7,6 +7,7 @@
       :poster_path="film.poster_path"
       :release_date="film.release_date"
       :genres="film.genres"
+      :id="film.id"
       v-isInTheView="$refs.wrapper"
       @intersects="intersected($event)"
     />
@@ -31,20 +32,21 @@ export default {
       return this.$store.state.searchOption;
     },
     filmsBySearchValue() {
-      if (this.searchOption === "TITLE") {
-        return this.films.filter(film =>
-          film.title.toLowerCase().includes(this.searchValue.toLowerCase())
+      if (this.$store.state.sortOption === "RELEASE DATE") {
+        return [...this.$store.getters.getFilteredFilms].sort(
+          (film1, film2) =>
+            new Date(film1.release_date) - new Date(film2.release_date)
         );
       }
-      return this.films.filter(film =>
-        film.genres.some(genre =>
-          genre.toLowerCase().includes(this.searchValue.toLowerCase())
-        )
+      return [...this.$store.getters.getFilteredFilms].sort(
+        (film1, film2) =>
+          new Date(film1.vote_count) - new Date(film2.vote_count)
       );
     }
   },
   methods: {
     intersected(event) {
+      // eslint-disable-next-line
       console.log(event.detail);
     }
   },
@@ -52,6 +54,7 @@ export default {
     isInTheView: isInTheView
   },
   mounted() {
+    // eslint-disable-next-line
     this.$store.dispatch("LOAD_FILMS").catch(err => console.log(err.message));
   }
 };

@@ -1,7 +1,7 @@
 <template>
   <div class="state-line">
     <div class="state-line-left-container">
-      <div class="state-line-left">7 movies found</div>
+      <div class="state-line-left">{{moviesCount}} movies found</div>
     </div>
     <div class="state-line-right">
       <RadioButton
@@ -33,13 +33,17 @@ export default {
           isChecked: false,
           name: "searchBy"
         }
-      ],
-      sortOption: "RELEASE DATE"
+      ]
     };
   },
   methods: {
     onSortOptionChange(sortOption) {
-      this.sortOption = sortOption;
+      this.$store.commit("CHANGE_SORT_OPTION", sortOption);
+    }
+  },
+  computed: {
+    moviesCount() {
+      return this.$store.getters.getFilteredFilms.length;
     }
   }
 };

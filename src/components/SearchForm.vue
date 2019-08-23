@@ -33,9 +33,7 @@ export default {
           isChecked: false,
           name: "searchBy"
         }
-      ],
-      searchOption: this.$store.state.searchOption,
-      searchValue: this.$store.state.searchValue
+      ]
     };
   },
   methods: {
